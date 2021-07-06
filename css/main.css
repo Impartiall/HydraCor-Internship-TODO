@@ -1,13 +1,122 @@
-h1.welcome {
-    text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 
+/* CSS Reset via https://ehtmlu.com/blog/a-simple-css-reset/ */
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+    font-family: inherit;
+  }
+  
+html {
+    font-family: 'Lato', sans-serif;
+    font-size: 62.5%;
 }
-input.welcome {
-    margin-left: auto;
-    margin-right: auto;
-    width: 200px;
-    display: block;
-    padding: 10px;
-    font-size: 24px;
+
+/* Main styles */
+:root {
+    --color-neutral: hsl(333, 21%, 92%);
+    --color-neutral-lighter: white;
+    --color-primary: hsl(35, 100%, 55%);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: var(--color-neutral);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 4em;
+}
+
+h1 {
+    font-size: 2em;
     text-align: center;
+}
+
+.new-todo-button {
+    padding: .5em;
+
+    border: none;
+    border-radius: 4px;
+
+    background-color: var(--color-primary);
+
+    color: white;
+
+    cursor: pointer;
+}
+
+.todo-list {
+    margin-top: 1em;
+
+    padding: 1em;
+
+    border-radius: 4px;
+
+    background-color: var(--color-neutral-lighter);
+}
+
+.todo {
+    width: 16em;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    list-style: none;
+}
+
+.todo__text {
+    border: none;
+    border-radius: 4px;
+
+    background-color: transparent;
+}
+
+.todo.completed .todo__text {
+    text-decoration: line-through;
+    font-style: italic;
+}
+
+.todo__text:focus {
+    outline: none;
+}
+
+.todo__complete-button {
+    width: 1em;
+    height: 1em;
+
+    padding: .5em;
+
+    border: 2px solid black;
+    border-radius: 50%;
+
+    background-color: transparent;
+
+    cursor: pointer;
+}
+
+.todo.completed .todo__complete-button {
+    background-color: var(--color-primary);
+}
+
+.todo__remove-button {
+    width: 1em;
+    height: 1em;
+
+    border: none;
+    border-radius: 4px;
+
+    background-color: var(--color-primary);
+
+    color: white;
+
+    cursor: pointer;
 }

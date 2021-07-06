@@ -5,14 +5,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="css/main.css">
-        <title>My VueJS app</title>
+        <title>Todo App</title>
     </head>
     <body>
-        <div id="vueApp">
-            <h1 class="welcome">{{welcomeMessage}}</h1>
-            <input class="welcome" v-model="welcomeMessage" />
-        </div>
-
+        <main id="vue-app">
+            <h1>Todo App</h1>
+            <button @click="newTodo" class="new-todo-button">New todo</button>
+            <ul class="todo-list">
+                <li v-for="todo in todos" :class="['todo', todo.completed ? 'completed' : '']">
+                    <button @click="toggleCompleted(todo)" class="todo__complete-button"></button>
+                    <input v-model="todo.text" class="todo__text" type="text">
+                    <button @click="removeTodo(todo)" class="todo__remove-button">
+                        <svg class="todo__remove-button__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                </li>
+            </ul>
+        </main>
 
         <script src="js/vue.min.js"></script>
         <script src="js/main.js"></script>
